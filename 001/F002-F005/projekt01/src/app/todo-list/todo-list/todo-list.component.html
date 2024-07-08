@@ -1,0 +1,23 @@
+<h4>Rözgített feladatok listája</h4>
+
+@if(records.length === 0){
+  <p>Sajnos még nincs rözgített feladat!</p>
+}
+@else{
+  <table>
+    <thead>
+      <tr>
+        <th>Név</th>
+        <th>Prioritás</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(record of records; track record){
+        <tr>
+          <td>{{record.name}}</td>
+          <td>{{record.priority | priority: 'EN'}}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
