@@ -17,6 +17,6 @@ import { SexPipe } from './sex.pipe';
     CommonModule // gyakran használt elemek (pl. a ciklikus megjelenítés, feltételes megjelenítés)
   ],
   // szeretném,  hogy a BCL kívülről elérhető legyen
-  exports: [BusinessCardListComponent]
+  exports: [BusinessCardListComponent, SexPipe]
 })
 export class PhoneBookModule { }

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BusinessCardComponent } from './business-card/business-card.component';
 import { PhoneBookModule } from './phone-book/phone-book.module';
+import { HrManagementModule } from './hr-management/hr-management.module';
 
 // modul definíció
 @NgModule({
@@ -14,6 +15,7 @@ import { PhoneBookModule } from './phone-book/phone-book.module';
   imports: [ // felsorolom azokat a külső elemket, amiket imporátlni szeretnék a modul műkdöéséhez
     BrowserModule,
     AppRoutingModule,
+    HrManagementModule,
     BusinessCardComponent, // beimportálom a külső sc-t, hogy fel tudjam helyezni a modulon belül
     PhoneBookModule // szeretném használni a benne definiált komponens
   ],

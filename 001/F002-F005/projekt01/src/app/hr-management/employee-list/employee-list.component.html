@@ -1,0 +1,26 @@
+<table *ngIf="emps.length !== 0">
+  <thead>
+    <tr>
+      <th>Név</th>
+      <th>Szülidő</th>
+      <th>Nem</th>
+      <th>Taj</th>
+      <th>Email</th>
+      <th>Telszamok</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor="let e of emps">
+    <td>{{e.name}}</td>
+    <td>{{e.birthDate | date:'YYYY.MM.dd'}}</td>
+    <td>{{e.sex | sex}}</td>
+    <td>{{e.checkSsn().status ? e.ssn : e.checkSsn().msg}}</td>
+    <td>{{e.email}}</td>
+    <td>
+      <ng-container *ngFor="let p of e.phones">
+        {{p}}<br/>
+      </ng-container>
+    </td>
+   </tr>
+  </tbody>
+</table>
