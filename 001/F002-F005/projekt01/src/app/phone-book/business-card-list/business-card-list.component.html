@@ -1,1 +1,73 @@
-<p>business-card-list works!</p>
+<h3>Elágazások kezelése</h3>
+<!-- egyágú elág (ngIf): ha a feltétel igaz, megjelenik a tartalom-->
+<p *ngIf="phoneBook.people.length === 0">A telefonkönyv üres!</p>
+<p *ngIf="phoneBook.people.length !== 0">A telefonkönyv NEM üres!</p>
+<!-- egyágú elág (@if): v17-től -->
+@if(phoneBook.people.length === 0){
+  <p>A telefonkönyv üres!</p>
+}
+@if(phoneBook.people.length !== 0){
+  <p>A telefonkönyv NEM üres!</p>
+}
+
+<!-- ng-container: amire használhatjuk a direktívákat, de a renderelés
+során nem keltekezik belőlük html tartalom-->
+<p>
+  A telefonkönyv státusza:
+  <ng-container *ngIf="phoneBook.people.length === 0">üres</ng-container>
+  <ng-container *ngIf="phoneBook.people.length !== 0">NEM üres</ng-container>
+</p>
+
+
+<!-- kétágú elágazások -->
+<!-- ng if esetén: nincs kétágú elégazás, hanem azt mondhatjuk, hogy
+ha a feltétel nem teljesül, akkor elugrok a sablon adott pontjára
+(lokális változóval címzett html tartalomra, ezeket # után definiáljuk)-->
+<!-- az else ágban csak ng-template elemre lehet ugrani -->
+<p *ngIf="phoneBook.people.length === 0; else ugorhatoHamis">A telefonkönyv üres!</p>
+<ng-template #ugorhatoHamis>
+  <p #hamisAg>A telefonkönyv NEM üres!</p> <!-- ehhez a p-hez hozzanredelem a hamisAg azonosítót-->
+</ng-template>
+<!-- v17-től lehetősége @if-@else-->
+@if(phoneBook.people.length !== 0){
+  <p>A telefonkönyv NEM üres!</p>
+}
+@else{
+  <p>A telefonkönyv üres!</p>
+}
+
+<h3>Iterációs eszköz</h3>
+<table *ngIf="phoneBook.people.length !== 0">
+  <thead>
+    <tr>
+      <th>Sorszám</th>
+      <th>Név</th>
+      <th>Szülidő</th>
+      <th>Nem</th>
+      <th>TAJ</th>
+      <th>Email</th>
+      <th>Telefonok</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- ha kell az index, akkor egy lokális változóba ki tudjuk
+    olvasni az index kulcsszóval -->
+    <tr *ngFor="let p of phoneBook.people;let i = index">
+      <!-- megjelenítéshez dupla {} kell (szöveg interpoláció)-->
+      <td>{{i}}</td>
+      <td>{{p.name}}</td>
+      <td>{{p.birthDate | date:'YYYY.MM.dd'}}</td>
+      <td>{{p.sex | sex }}</td>
+      <td>{{p.ssn}}</td>
+      <td>{{p.email}}</td>
+      <td>
+        <ng-container *ngIf="p.phones.length === 0">
+          Nincs telefonszám
+        </ng-container>
+        <ng-container *ngFor="let po of p.phones">
+          {{po}}<br/>
+        </ng-container>
+      </td>
+    </tr>
+  </tbody>
+</table>

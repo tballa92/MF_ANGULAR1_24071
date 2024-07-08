@@ -5,11 +5,13 @@ import { Employee } from './models/Employee';
 import { PhoneBook } from './models/PhoneBook';
 import { IPerson } from './models/IPerson';
 import { BusinessCardListComponent } from './business-card-list/business-card-list.component';
+import { SexPipe } from './sex.pipe';
+
 
 
 @NgModule({
   declarations: [ // csak "nevezetes" angular elemek szerpelhetenk (direktíva, komponens, pipe)
-    BusinessCardListComponent
+    BusinessCardListComponent, SexPipe
   ],
   imports: [
     CommonModule // gyakran használt elemek (pl. a ciklikus megjelenítés, feltételes megjelenítés)
