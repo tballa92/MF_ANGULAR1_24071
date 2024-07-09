@@ -1,0 +1,19 @@
+<form [formGroup]="empForm" (ngSubmit)="submit()" novalidate>
+  <div *ngIf="!empForm.controls.name.valid && (empForm.controls.name.dirty || empForm.controls.name.touched)">
+    A név mező kitöltése hibás!
+  </div>
+  <input type="text" name="name" placeholder="név" formControlName="name"/><br/>
+  <input type="text" name="ssn" placeholder="TAJ" formControlName="ssnId"/><br/>
+  <input type="date" name="birthDate" placeholder="Szülidő"/><br/>
+  Nem:
+  <input type="radio" name="sex" value="F" formControlName="sex"/>nő
+  <input type="radio" name="sex" value="M" formControlName="sex"/>férfi<br/>
+  Családi állapot:
+  <select name="status" formControlName="maritalStatus">
+    <option value="0">egyedülálló</option>
+    <option value="1">házas</option>
+    <option value="2">elvált</option>
+    <option value="3">özvegy</option>
+  </select><br/>
+  <button type="submit" [disabled]="!empForm.valid">Beküldés</button>
+</form>
