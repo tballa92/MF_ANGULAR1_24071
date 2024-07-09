@@ -1,3 +1,7 @@
 <!-- rögzített teendők listája -->
 <!-- be kell állítani az összes required tulajdonságot-->
-<app-todo-list [todoItems]="todos"></app-todo-list>
+<app-todo-list [todoItems]="todos" (todoDeleted)="deleteTodo($event)"></app-todo-list>
+
+
+<!-- rögztíésre alkalmas nézet felhelyezése-->
+<app-todo-add (todoCreated)="addTodo($event)"></app-todo-add>

@@ -9,6 +9,7 @@
       <tr>
         <th>Név</th>
         <th>Prioritás</th>
+        <th>Töröl</th>
       </tr>
     </thead>
     <tbody>
@@ -16,6 +17,7 @@
         <tr>
           <td>{{record.name}}</td>
           <td>{{record.priority | priority: 'EN'}}</td>
+          <td><button (click)="delete(record)">Töröl</button></td>
         </tr>
       }
     </tbody>

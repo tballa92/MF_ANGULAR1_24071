@@ -1,0 +1,12 @@
+<form>
+  <input type="text" name="name" [(ngModel)]="todoName" placeholder="teendő neve" #inp1/><br/>
+  Prioritás:
+  <select name="prio" #inp2>
+    <option value="0">alacsony</option>
+    <option value="1">közepes</option>
+    <option value="2">magas</option>
+  </select><br/>
+  <button type="button" (click)="addTodo(inp1.value, inp2.value)">Mentés v1</button>
+  <button type="button" (click)="addTodo2()">Mentés v2</button>
+
+</form>

@@ -14,4 +14,13 @@ export class TodoListAppComponent {
     this.todos = [];
     this.todos.push({name: 'mosogatás', priority: Priority.HIGH});
   }
+
+  addTodo(newTodo : Todo){
+    this.todos.push(newTodo);
+  }
+
+  deleteTodo(deletedTodo : Todo){
+    this.todos = this.todos.filter((todo) => !(todo.name === deletedTodo.name &&
+                                               todo.priority === deletedTodo.priority))
+  }
 }

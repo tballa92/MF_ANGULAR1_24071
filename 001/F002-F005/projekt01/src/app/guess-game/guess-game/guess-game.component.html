@@ -1,0 +1,13 @@
+<p>Számkitaláló játék a [{{min}};{{max}}] intervallumról.</p>
+
+<ng-container *ngIf="lastGuess !== undefined">
+  <p *ngIf="lastGuess < number">A tipp kisebb, mint a gondolt szám!</p>
+  <p *ngIf="lastGuess === number">Gratulálok, nyertél!</p>
+  <p *ngIf="lastGuess > number">A tipp nagyobb, mint a gondolt szám!</p>
+</ng-container>
+
+
+<div>
+  <button *ngFor="let l of labels" (click)="buttonClick(l)">{{l}}</button>
+</div>
+

@@ -7,6 +7,7 @@ import { BusinessCardComponent } from './business-card/business-card.component';
 import { PhoneBookModule } from './phone-book/phone-book.module';
 import { HrManagementModule } from './hr-management/hr-management.module';
 import { TodoListModule } from './todo-list/todo-list.module';
+import { GuessGameModule } from './guess-game/guess-game.module';
 
 // modul definíció
 @NgModule({
@@ -18,6 +19,7 @@ import { TodoListModule } from './todo-list/todo-list.module';
     AppRoutingModule,
     HrManagementModule,
     TodoListModule,
+    GuessGameModule,
     BusinessCardComponent, // beimportálom a külső sc-t, hogy fel tudjam helyezni a modulon belül
     PhoneBookModule // szeretném használni a benne definiált komponens
   ],

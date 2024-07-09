@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { TodoListAppComponent } from './todo-list-app/todo-list-app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { PriorityPipe } from './priority.pipe';
+import { TodoAddComponent } from './todo-add/todo-add.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -10,10 +12,12 @@ import { PriorityPipe } from './priority.pipe';
   declarations: [
     TodoListAppComponent,
     TodoListComponent,
-    PriorityPipe
+    PriorityPipe,
+    TodoAddComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule // az ngModel kötéshez kell jelen esetben
   ],
   exports: [TodoListAppComponent]
 })
