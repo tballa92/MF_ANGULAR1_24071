@@ -3,6 +3,20 @@
     A név mező kitöltése hibás!
   </div>
   <input type="text" name="name" placeholder="név" formControlName="name"/><br/>
+
+  <div *ngIf="!c('ssnId').valid && (c('ssnId').dirty || c('ssnId').touched)">
+    Baj van, a mező nem valid!
+
+    <!-- akkor látjuk, ha a required szabály sérült-->
+    <div *ngIf="c('ssnId').errors.required">(1) A TAJ megadása kötelező!</div>
+     <!-- akkor látjuk, ha a minLength vagy maxLength szabály sérült-->
+    <div *ngIf="empForm.controls.ssnId.errors?.['minlength'] || c('ssnId').errors.maxlength"> (2) A TAJ szám 9 karakterből áll!</div>
+     <!-- akkor látjuk, ha a pattern szabály sérült-->
+    <div *ngIf="c('ssnId').errors.pattern">(3)A TAJ szám csak számjegyeket tartalmazhat!</div>
+
+    <div *ngIf="c('ssnId').errors.ssn">{{c('ssnId').errors.msg}}</div>
+  </div>
+
   <input type="text" name="ssn" placeholder="TAJ" formControlName="ssnId"/><br/>
   <input type="date" name="birthDate" placeholder="Szülidő"/><br/>
   Nem:
@@ -15,5 +29,11 @@
     <option value="2">elvált</option>
     <option value="3">özvegy</option>
   </select><br/>
-  <button type="submit" [disabled]="!empForm.valid">Beküldés</button>
+
+  <ng-container *ngIf="!c('age').valid && (c('age').dirty || c('age').touched)">
+  dd
+    <div *ngIf="c('age').errors.between">{{c('age').errors.between.msg}}</div>
+  </ng-container>
+  <input type="text" name="age" fromControlName="age" placeholder="életkor"/><br/>
+  <button type="submit" >Beküldés</button>
 </form>
