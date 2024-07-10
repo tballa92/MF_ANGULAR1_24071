@@ -1,0 +1,20 @@
+<h2>Tennivalók listája</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Teendő id</th>
+      <th>Teendő név</th>
+      <th>Teendő prioritás</th>
+      <th>Törlés</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let t of todos$ | async">
+      <td>{{t.id}}</td>
+      <td>{{t.name}}</td>
+      <td>{{t.prio}}</td>
+      <td><button (click)="delete(t)">Töröl</button></td>
+    </tr>
+  </tbody>
+</table>
