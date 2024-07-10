@@ -1,1 +1,18 @@
-<p>product-list works!</p>
+<table>
+  <thead>
+    <tr>
+      <th>Termék neve</th>
+      <th>Termék ára</th>
+      <th>Műveletek</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products">
+      <td>{{p.title}}</td>
+      <td>{{p.price}}</td>
+      <td>
+        <button (click)="deleteProduct(p)">Törlés</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

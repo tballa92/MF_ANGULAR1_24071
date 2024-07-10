@@ -15,7 +15,7 @@
       <tr *ngFor="let d of data">
         <td>{{d.slug}}</td>
         <td>{{d.name}}</td>
-        <td><a [href]="d.url" target="_blank">{{d.name}}</a></td>
+        <td><a [routerLink]="['/products/category',d.slug]">{{d.name}}</a></td>
       </tr>
     </tbody>
   </table>
