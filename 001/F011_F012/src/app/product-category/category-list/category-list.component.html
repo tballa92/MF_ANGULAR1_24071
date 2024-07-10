@@ -1,1 +1,22 @@
-<p>category-list works!</p>
+<h2>Kategóriák listája</h2>
+<div *ngIf="dataLoad; else showData">
+  Adatok letöltése folyamatban, kérem, hogy várjon!
+</div>
+<ng-template #showData>
+  <table>
+    <thead>
+      <tr>
+        <th>Slug</th>
+        <th>Name</th>
+        <th>Url</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of data">
+        <td>{{d.slug}}</td>
+        <td>{{d.name}}</td>
+        <td><a [href]="d.url" target="_blank">{{d.name}}</a></td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
